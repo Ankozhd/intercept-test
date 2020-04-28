@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "intercept"
+    }
+  },
+  "defaultProject": "intercept",
+  "cli": {
+    "analytics": false
+  }
 }

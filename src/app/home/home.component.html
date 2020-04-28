@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <button (click)="add()">Add row</button>
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center column" *ngFor="let header of headers">{{header}}</th>
+        </tr>
+        <tr *ngFor="let event of events; let id = index">
+          <td *ngFor="let header of headers">
+            <span *ngIf="header !== 'eventId'; else elseBlock" (keyup)="changeValue(id, 'sire', $event)" (blur)="updateList(id, 'sire', $event)" contenteditable="true">{{event[header]}}</span>
+            <ng-template #elseBlock>{{event[header]}}</ng-template>
+          </td>
+          <td>
+            <button type="button" (click)="remove(id)">Remove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
